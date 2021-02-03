@@ -31,7 +31,7 @@ public class PersistentExpenseManager extends ExpenseManager{
         db.execSQL("CREATE TABLE IF NOT EXISTS TransactionLog (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "accountNo TEXT ," +
-                " expenseType LONG , " +
+                "expenseType LONG , " +
                 "amount DOUBLE, " +
                 "date LONG, " +
                 "FOREIGN KEY(accountNo) REFERENCES Accounts(accountNo));");

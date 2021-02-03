@@ -5,9 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
 import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
@@ -31,7 +33,7 @@ public class PersistentTransactionDAO implements TransactionDAO{
         statement.bindString(1,accountNo);
         statement.bindLong(2,(expenseType == ExpenseType.EXPENSE) ? 0 :1);
         statement.bindDouble(3,amount);
-        statement.bindString(4,strDate);
+        statement.bindString(4,String.valueOf(date.getTime()));
 
         statement.executeInsert();
     }
